@@ -1,0 +1,2 @@
+# Ginnesh
+Game using Ncurses
