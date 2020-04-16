@@ -17,6 +17,9 @@ int Actor::GetX() {
 int Actor::GetY() {
     return y;
 }
+char Actor::GetTile() {
+    return tile;
+}
 
 void Actor::SetName(string n) {
     name = n;
@@ -29,4 +32,7 @@ void Actor::SetX(int xpos) {
 }
 void Actor::SetY(int ypos) {
     y = ypos;
+}
+void Actor::SetTile(char t) {
+    tile = t;
 }
