@@ -1,44 +1,54 @@
 #include"actor.h"
 
-void Actor::move(char choice) {
+void Actor::move(char choice,int chunksize) {
+
+    int newX=0;
+    int newY=0;
+
     switch(choice) {
         case '1':
-            x-=1;
-            y+=1;
+            newX=-1;
+            newY=+1;
             break;
         case '2':
-            y+=1;
+            newY+=1;
             break;
         case '3':
-            x+=1;
-            y+=1;
+            newX+=1;
+            newY+=1;
             break;
         case '4':
-            x-=1;
+            newX-=1;
             break;
         case '6':
-            x+=1;
+            newX+=1;
             break;
         case '7':
-            x-=1;
-            y-=1;
+            newX-=1;
+            newY-=1;
             break;
         case '8':
-            y-=1;
+            newY-=1;
             break;
         case '9':
-            x+=1;
-            y-=1;
+            newX+=1;
+            newY-=1;
             break;
 
+    }
+    if((x+newX) > (chunksize - 1) || (x+newX) < 0 || (y+newY) > (chunksize - 1) || (y+newY) < 0) {
+        printw("Invalid Move choice");
+    } else {
+        x+=newX;
+        y+=newY;
     }
 
 }
 
 Actor::Actor() {
     health = 5;
-    x=5;
-    y=5;
+    x=1;
+    y=1;
     tile='@';
 }
 

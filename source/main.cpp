@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[]){
 	
-	const int CHUNKSIZE = 10;
+	const int CHUNKSIZE = 150;
 	char command;
 	bool debugMode = false;
 
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]){
 			}
 			command = getch();
 			if(isdigit(command)) {
-				player.move(command);
+				player.move(command,CHUNKSIZE);
 			}
 			refresh();
 			

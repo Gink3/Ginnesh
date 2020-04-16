@@ -1,6 +1,7 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+#include<cstdlib>
 #include<ncurses.h>
 #include<vector>
 

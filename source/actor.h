@@ -1,7 +1,7 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 #include<string>
-
+#include<curses.h>
 using namespace std;
 
 
@@ -27,7 +27,7 @@ class Actor {
         void SetY(int ypos);
         void SetTile(char t);
 
-        void move(char choice);
+        void move(char choice, int chunksize);
         
 
 };

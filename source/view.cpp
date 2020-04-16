@@ -2,12 +2,14 @@
 
 using namespace std;
 
-void draw(vector<vector<char>>& world, int CHUNKSIZE, Actor& actor) {
+void draw(vector<vector<char>>& world, int CHUNKSIZE, Actor& player) {
 	
-	for(int row=0;row<CHUNKSIZE;row++) {
-		for(int col=0;col<CHUNKSIZE;col++) {
-			if(row == (actor.GetY() - 1) && col == (actor.GetX() - 1)) {
-				printw("%c", actor.GetTile());
+	vector<int> coords = GetView(player, CHUNKSIZE);
+	
+	for(int row=coords[2]; row < coords[3];row++) {
+		for(int col= coords[0]; col < coords[1]; col++) {
+			if(row == player.GetY() && col == player.GetX()) {
+				printw("%c", player.GetTile());
 			} else {
 				printw("%c", world[row][col]);
 			}
@@ -17,3 +19,40 @@ void draw(vector<vector<char>>& world, int CHUNKSIZE, Actor& actor) {
 	}
 
 }
+
+//returns +- X and Y around the player
+vector<int> GetView(Actor& actor, int chunksize) {
+	int playerX = actor.GetX();
+	int playerY = actor.GetY();
+
+	vector<int> coords(4);
+
+	int view=5;
+
+	/*
+	coords[0] x min
+	coords[1] x max
+	coords[2] y min
+	coords[3] y max
+	*/
+
+	if(playerX < 10) {
+		coords[0] = 0;
+		coords[1] = 10;
+	} else if (playerX > chunksize - 11) {
+		coords[0] = chunksize - 11;
+		coords[1] = chunksize -1;
+	}
+
+	if(playerY < 10) {
+		coords[2] = 0;
+		coords[3] = 10;
+	} else if (playerY > chunksize - 11) {
+		coords[2] = chunksize - 11;
+		coords[3] = chunksize -1;
+	}
+
+	return coords;
+
+}
+

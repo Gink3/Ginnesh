@@ -18,6 +18,8 @@ TODO
 - [ ] Monsters
 - [ ] Combat
 - [ ] view rendering
+- [ ] Help menu
+- [ ] Inventory System
 
 Dependancies
 * Ncurses

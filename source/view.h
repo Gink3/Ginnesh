@@ -6,9 +6,9 @@
 
 using namespace std;
 
-void draw(vector<vector<char>>& world, int CHUNKSIZE, Actor& actor);
+void draw(vector<vector<char>>& world, int CHUNKSIZE, Actor& player);
 
-
+vector<int> GetView(Actor& actor, int chunksize);
 
 
 
