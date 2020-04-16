@@ -13,6 +13,8 @@ class Actor {
         int y;
         char tile;
     public:
+        Actor();
+        Actor(string n);
         string GetName();
         int GetHealth();
         int GetX();
@@ -25,7 +27,7 @@ class Actor {
         void SetY(int ypos);
         void SetTile(char t);
 
-        void move(Actor& actor, int choice);
+        void move(char choice);
         
 
 };

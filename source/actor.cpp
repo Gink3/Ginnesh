@@ -1,8 +1,52 @@
 #include"actor.h"
 
-void Actor::move(Actor& actor, int choice) {
-    
+void Actor::move(char choice) {
+    switch(choice) {
+        case '1':
+            x-=1;
+            y+=1;
+            break;
+        case '2':
+            y+=1;
+            break;
+        case '3':
+            x+=1;
+            y+=1;
+            break;
+        case '4':
+            x-=1;
+            break;
+        case '6':
+            x+=1;
+            break;
+        case '7':
+            x-=1;
+            y-=1;
+            break;
+        case '8':
+            y-=1;
+            break;
+        case '9':
+            x+=1;
+            y-=1;
+            break;
 
+    }
+
+}
+
+Actor::Actor() {
+    health = 5;
+    x=5;
+    y=5;
+    tile='@';
+}
+
+Actor::Actor(string n) {
+    name=n;
+    x=5;
+    y=5;
+    tile='@';
 }
 
 string Actor::GetName() {
