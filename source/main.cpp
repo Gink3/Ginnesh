@@ -6,10 +6,18 @@
 #include"actor.h"
 using namespace std;
 
-int main(){
+int main(int argc, char *argv[]){
 	
 	const int CHUNKSIZE = 10;
 	char command;
+	bool debugMode = false;
+
+	for(int i=0;i<argc;i++) {
+		string arg = argv[i];
+		if(arg == "-d" || arg == "--debug") {
+			debugMode = true;
+		}
+	}
 
 	Actor player;
 
@@ -32,8 +40,10 @@ int main(){
 		draw(world, CHUNKSIZE, player);
 		printw("Player x: %d", player.GetX());
 		printw("\nPlayer y: %d", player.GetY());
-		printw("\nCounter: %d", count);
-		printw("\nKey pressed: %c",command);
+		if(debugMode) {
+			printw("\nCounter: %d", count);
+			printw("\nKey pressed: %c",command);
+		}
 		command = getch();
 		if(isdigit(command)) {
 			player.move(command);
