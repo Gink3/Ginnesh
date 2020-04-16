@@ -8,3 +8,13 @@ Build Instructions
 
 Game Options
 * `Debug` -d or `--debug`
+
+TODO
+- [ ] world gen
+- [ ] world save/load
+- [ ] character save/load
+- [x] player movement
+- [ ] display section of world
+- [ ] Monsters
+- [ ] Combat
+- [ ] view rendering
