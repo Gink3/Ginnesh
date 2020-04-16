@@ -4,6 +4,7 @@
 #include"world.h"
 #include"view.h"
 #include"actor.h"
+#include"menu.h"
 using namespace std;
 
 int main(int argc, char *argv[]){
@@ -24,35 +25,41 @@ int main(int argc, char *argv[]){
 	initscr();
 	curs_set(0);
 	noecho();
-	(void)echo();
 
+	char input = MainMenu();
 
+	if(input == 'q') {
+		endwin();
+	} else if (input == '?') {
+		HelpMenu();
+	} else {
+		vector<vector<char>> world;
+		CreateWorld(world, CHUNKSIZE);
+			
+		int count = 0;
 
-	vector<vector<char>> world;
-	CreateWorld(world, CHUNKSIZE);
-		
-	int count = 0;
-
-	//game loop
-	while(command != 'q' && command != 'Q') {
-		count+=1;
-		clear();
-		draw(world, CHUNKSIZE, player);
-		printw("Player x: %d", player.GetX());
-		printw("\nPlayer y: %d", player.GetY());
-		if(debugMode) {
-			printw("\nCounter: %d", count);
-			printw("\nKey pressed: %c",command);
+		//game loop
+		while(command != 'q' && command != 'Q') {
+			count+=1;
+			clear();
+			draw(world, CHUNKSIZE, player);
+			printw("Player x: %d", player.GetX());
+			printw("\nPlayer y: %d", player.GetY());
+			if(debugMode) {
+				printw("\nCounter: %d", count);
+				printw("\nKey pressed: %c",command);
+			}
+			command = getch();
+			if(isdigit(command)) {
+				player.move(command);
+			}
+			refresh();
+			
 		}
-		command = getch();
-		if(isdigit(command)) {
-			player.move(command);
-		}
-		refresh();
-		
+
+
+		endwin();
 	}
-	
-	
-	endwin();
+
 	return 0;
  }  
