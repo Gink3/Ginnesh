@@ -7,7 +7,7 @@ Build Instructions
 * run executable `./Ginnesh`
 
 Game Options
-* `Debug` -d or `--debug`
+* Debug `-d` or `--debug`
 
 TODO
 - [ ] world gen
