@@ -52,6 +52,8 @@ Actor::Actor() {
     x=1;
     y=1;
     tile='@';
+    xp=0;
+    level=1;
 }
 
 Actor::Actor(string n) {
@@ -59,9 +61,17 @@ Actor::Actor(string n) {
     x=5;
     y=5;
     tile='@';
+    xp=0;
+    level=1;
 }
 
-Actor::Actor(string n, int h, int x, int y, char t) {
+Actor::Actor(string n, int h, int xpos, int ypos, char t, int exp, int l) {
+    name=n;
+    x=xpos;
+    y=ypos;
+    tile=t;
+    xp=exp;
+    level=l;
 
 }
 

@@ -13,10 +13,12 @@ class Actor {
         int x;
         int y;
         char tile;
+        int xp;
+        int level;
     public:
         Actor();
         Actor(string n);
-        Actor(string n, int h, int x, int y, char t);
+        Actor(string n, int h, int x, int y, char t, int exp, int l);
         string GetName();
         int GetHealth();
         int GetX();

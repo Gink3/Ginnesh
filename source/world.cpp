@@ -7,7 +7,7 @@ void CreateWorld(vector<vector<char>>& world, int chunksize) {
 	vector<char> row;
 	for(int i = 0; i < chunksize; i++) {
 		for(int j = 0; j < chunksize; j++) {
-			if(i == 0 || j == 0 || j == chunksize - 1 ) {
+			if(i == 0 || j == 0 || j == chunksize - 1 || i == chunksize - 1) {
 				row.push_back('#');
 			} else {
 				row.push_back(',');
