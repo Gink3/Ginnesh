@@ -1,6 +1,7 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 #include<string>
+#include<vector>
 #include<curses.h>
 using namespace std;
 
@@ -15,7 +16,7 @@ class Actor {
     public:
         Actor();
         Actor(string n);
-        Actor::Actor(string n, int h, int x, int y, char t);
+        Actor(string n, int h, int x, int y, char t);
         string GetName();
         int GetHealth();
         int GetX();
@@ -28,7 +29,7 @@ class Actor {
         void SetY(int ypos);
         void SetTile(char t);
 
-        void move(char choice, int chunksize);
+        void move(char choice, int chunksize, vector<vector<char>>& world);
         
 
 };

@@ -5,6 +5,7 @@
 #include"view.h"
 #include"actor.h"
 #include"menu.h"
+#include"enemies.h"
 using namespace std;
 
 int main(int argc, char *argv[]){
@@ -12,6 +13,11 @@ int main(int argc, char *argv[]){
 	const int CHUNKSIZE = 150;
 	char command;
 	bool debugMode = false;
+
+
+	vector<Actor> mobs;
+
+	
 
 	for(int i=0;i<argc;i++) {
 		string arg = argv[i];
@@ -51,7 +57,7 @@ int main(int argc, char *argv[]){
 			}
 			command = getch();
 			if(isdigit(command)) {
-				player.move(command,CHUNKSIZE);
+				player.move(command,CHUNKSIZE, world);
 			}
 			refresh();
 			

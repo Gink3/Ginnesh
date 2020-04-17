@@ -1,6 +1,6 @@
 #include"actor.h"
 
-void Actor::move(char choice,int chunksize) {
+void Actor::move(char choice,int chunksize, vector<vector<char>>& world) {
 
     int newX=0;
     int newY=0;
@@ -37,6 +37,9 @@ void Actor::move(char choice,int chunksize) {
 
     }
     if((x+newX) > (chunksize - 1) || (x+newX) < 0 || (y+newY) > (chunksize - 1) || (y+newY) < 0) {
+    
+    } else if (world[y+newY][x+newX] == '#') { 
+
     } else {
         x+=newX;
         y+=newY;
@@ -59,7 +62,7 @@ Actor::Actor(string n) {
 }
 
 Actor::Actor(string n, int h, int x, int y, char t) {
-    
+
 }
 
 string Actor::GetName() {
