@@ -15,6 +15,7 @@ class Actor {
     public:
         Actor();
         Actor(string n);
+        Actor::Actor(string n, int h, int x, int y, char t);
         string GetName();
         int GetHealth();
         int GetX();

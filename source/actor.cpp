@@ -37,7 +37,6 @@ void Actor::move(char choice,int chunksize) {
 
     }
     if((x+newX) > (chunksize - 1) || (x+newX) < 0 || (y+newY) > (chunksize - 1) || (y+newY) < 0) {
-        printw("Invalid Move choice");
     } else {
         x+=newX;
         y+=newY;
@@ -57,6 +56,10 @@ Actor::Actor(string n) {
     x=5;
     y=5;
     tile='@';
+}
+
+Actor::Actor(string n, int h, int x, int y, char t) {
+    
 }
 
 string Actor::GetName() {
