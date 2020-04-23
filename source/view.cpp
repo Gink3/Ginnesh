@@ -27,7 +27,8 @@ vector<int> GetView(Actor& actor, int chunksize) {
 
 	vector<int> coords(4);
 
-	int view=20;
+	int Yview=10;
+	int Xview=20;
 
 	/*
 	coords[0] x min
@@ -38,32 +39,36 @@ vector<int> GetView(Actor& actor, int chunksize) {
 
 	if(playerX < 10) {
 		coords[0] = 0;
-		coords[1] = playerX + view;
-	} else if (playerX > chunksize - 11) {
-		coords[0] = chunksize - (2 * view + 1);
+		coords[1] = Xview * 2;
+	} else if (playerX > chunksize - Xview) {
+		coords[0] = chunksize - (2 * Xview + 1);
 		coords[1] = chunksize;
 	} else {
-		if (playerX - view > 0) {
-			coords[0] = playerX - view;
+		if (playerX - Xview > 0) {
+			coords[0] = playerX - Xview;
 		} else {
 			coords[0] = 0;
 		}
-		coords[1] = playerX + view;
+		if(playerX + Xview > (2*Xview)) {
+			coords[1] = playerX + Xview;
+		} else {
+			coords[1] = Xview * 2;
+		}
 	}
 
 	if(playerY < 10) {
 		coords[2] = 0;
-		coords[3] = playerY + view;
+		coords[3] = Yview * 2;
 	} else if (playerY > chunksize - 11) {
-		coords[2] = chunksize - (2 * view + 1);
+		coords[2] = chunksize - (2 * Yview + 1);
 		coords[3] = chunksize;
 	} else {
-		if(playerY - view > 0) {
-			coords[2] = playerY - view;
+		if(playerY - Yview > 0) {
+			coords[2] = playerY - Yview;
 		} else {
 			coords[2] = 0;
 		}
-		coords[3] = playerY + view;
+		coords[3] = playerY + Yview;
 	}
 
 	return coords;

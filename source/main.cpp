@@ -10,7 +10,8 @@ using namespace std;
 
 int main(int argc, char *argv[]){
 	
-	const int CHUNKSIZE = 150;
+	int CHUNKSIZE = 150;
+	CHUNKSIZE += 2;
 	char command;
 	bool debugMode = false;
 
