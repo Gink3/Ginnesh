@@ -33,40 +33,45 @@ int main(int argc, char *argv[]){
 	curs_set(0);
 	noecho();
 
-	char input = MainMenu();
+	char input;
+	bool menu = true;
 
-	if(input == 'q') {
-		endwin();
-	} else if (input == '?') {
-		HelpMenu();
-	} else {
-		vector<vector<char>> world;
-		CreateWorld(world, CHUNKSIZE);
-			
-		int count = 0;
+	do {
+		input = MainMenu();
+		if(input == 'q') {
+			menu = false;
+			endwin();
+		} else if (input == '?') {
+			HelpMenu();
+		} else if (input == 'l') {
+			LoadRoom();
+		} else  if (input == 'p'){
+			vector<vector<char>> world;
+			CreateWorld(world, CHUNKSIZE);
+				
+			int count = 0;
 
-		//game loop
-		while(command != 'q' && command != 'Q') {
-			count+=1;
-			clear();
-			draw(world, CHUNKSIZE, player);
-			printw("Player x: %d", player.GetX());
-			printw("\nPlayer y: %d", player.GetY());
-			if(debugMode) {
-				printw("\nCounter: %d", count);
-				printw("\nKey pressed: %c",command);
+			//game loop
+			while(command != 'q' && command != 'Q') {
+				count+=1;
+				clear();
+				draw(world, CHUNKSIZE, player);
+				printw("Player x: %d", player.GetX());
+				printw("\nPlayer y: %d", player.GetY());
+				if(debugMode) {
+					printw("\nCounter: %d", count);
+					printw("\nKey pressed: %c",command);
+				}
+				command = getch();
+				if(isdigit(command)) {
+					player.move(command,CHUNKSIZE, world);
+				}
+				refresh();
+				
 			}
-			command = getch();
-			if(isdigit(command)) {
-				player.move(command,CHUNKSIZE, world);
-			}
-			refresh();
-			
+			command = 'z';
 		}
-
-
-		endwin();
-	}
+	} while(menu == true);
 
 	return 0;
  }  

@@ -6,6 +6,7 @@
 
 char MainMenu();
 char HelpMenu();
+void LoadRoom();
 
 bool MenuInputCheck(char c);
 

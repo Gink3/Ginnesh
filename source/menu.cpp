@@ -20,6 +20,10 @@ char HelpMenu() {
 
 }
 
+void LoadRoom() {
+    
+}
+
 bool MenuInputCheck(char c) {
     bool check = false;
     switch(c) {
