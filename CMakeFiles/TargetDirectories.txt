@@ -1,0 +1,3 @@
+/home/taylor/Ginnesh/CMakeFiles/rebuild_cache.dir
+/home/taylor/Ginnesh/CMakeFiles/Ginnesh.dir
+/home/taylor/Ginnesh/CMakeFiles/edit_cache.dir
